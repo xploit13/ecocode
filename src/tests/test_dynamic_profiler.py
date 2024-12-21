@@ -4,9 +4,12 @@
 import pytest
 from ecocode.dynamic_profiler import DynamicProfiler
 
+
 def test_profiler_initialization():
     profiler = DynamicProfiler()
-    assert profiler.get_results() == {}, "Profiler should initialize with empty results."
+    assert profiler.get_results(
+    ) == {}, "Profiler should initialize with empty results."
+
 
 def test_profiler_start_stop():
     profiler = DynamicProfiler()
@@ -14,6 +17,7 @@ def test_profiler_start_stop():
     assert profiler.active, "Profiler should be active after start."
     profiler.stop()
     assert not profiler.active, "Profiler should not be active after stop."
+
 
 def test_function_profiling():
     profiler = DynamicProfiler()
@@ -29,7 +33,9 @@ def test_function_profiling():
     profiler.stop()
     results = profiler.get_results()
     assert "sample_function" in results, "Profiler should record the sample function."
-    assert results["sample_function"]["execution_time"] > 0, "Execution time should be recorded."
+    assert results["sample_function"][
+        "execution_time"] > 0, "Execution time should be recorded."
+
 
 def test_multiple_function_calls():
     profiler = DynamicProfiler()
@@ -44,7 +50,9 @@ def test_multiple_function_calls():
 
     profiler.stop()
     results = profiler.get_results()
-    assert results["sample_function"]["execution_count"] == 3, "Execution count should track multiple calls."
+    assert results["sample_function"][
+        "execution_count"] == 3, "Execution count should track multiple calls."
+
 
 def test_clear_results():
     profiler = DynamicProfiler()
@@ -58,4 +66,10 @@ def test_clear_results():
     profiler.stop()
 
     profiler.clear_results()
-    assert profiler.get_results() == {}, "Results should be cleared after calling clear_results."
+    assert profiler.get_results(
+    ) == {}, "Results should be cleared after calling clear_results."
+
+
+# Run tests using pytest
+if __name__ == "__main__":
+    pytest.main()

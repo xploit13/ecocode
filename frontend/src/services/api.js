@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = 'http://localhost:5000/api';
 
 /**
  * Fetch data from the given endpoint.
@@ -13,7 +13,7 @@ export const fetchData = async (endpoint, params = {}) => {
     const response = await axios.get(`${API_BASE_URL}/${endpoint}`, { params });
     return response.data;
   } catch (error) {
-    console.error("Error fetching data:", error.message);
+    console.error('Error fetching data:', error.message);
     throw error;
   }
 };
@@ -29,7 +29,7 @@ export const postData = async (endpoint, data) => {
     const response = await axios.post(`${API_BASE_URL}/${endpoint}`, data);
     return response.data;
   } catch (error) {
-    console.error("Error posting data:", error.message);
+    console.error('Error posting data:', error.message);
     throw error;
   }
 };
@@ -45,7 +45,7 @@ export const updateData = async (endpoint, data) => {
     const response = await axios.put(`${API_BASE_URL}/${endpoint}`, data);
     return response.data;
   } catch (error) {
-    console.error("Error updating data:", error.message);
+    console.error('Error updating data:', error.message);
     throw error;
   }
 };
@@ -60,7 +60,7 @@ export const deleteData = async (endpoint) => {
     const response = await axios.delete(`${API_BASE_URL}/${endpoint}`);
     return response.data;
   } catch (error) {
-    console.error("Error deleting data:", error.message);
+    console.error('Error deleting data:', error.message);
     throw error;
   }
 };
@@ -75,20 +75,20 @@ export const deleteData = async (endpoint) => {
 export const uploadFile = async (endpoint, file, additionalData = {}) => {
   try {
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append('file', file);
     Object.keys(additionalData).forEach((key) => {
       formData.append(key, additionalData[key]);
     });
 
     const response = await axios.post(`${API_BASE_URL}/${endpoint}`, formData, {
       headers: {
-        "Content-Type": "multipart/form-data",
+        'Content-Type': 'multipart/form-data',
       },
     });
 
     return response.data;
   } catch (error) {
-    console.error("Error uploading file:", error.message);
+    console.error('Error uploading file:', error.message);
     throw error;
   }
 };

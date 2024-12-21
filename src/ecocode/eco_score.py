@@ -3,7 +3,9 @@
 
 import os
 
+
 class EcoScoreCalculator:
+
     def __init__(self):
         self.base_score = 100
 
@@ -19,7 +21,7 @@ class EcoScoreCalculator:
         """
         if not os.path.exists(script_path):
             raise FileNotFoundError(f"Script at {script_path} not found.")
-        
+
         # Simulate score calculation based on file size and complexity
         file_size = os.path.getsize(script_path)
         score_penalty = min(file_size // 1000, self.base_score)
@@ -39,7 +41,7 @@ class EcoScoreCalculator:
         """
         if not os.path.exists(script_path):
             raise FileNotFoundError(f"Script at {script_path} not found.")
-        
+
         file_size = os.path.getsize(script_path)
         lines_of_code = self._count_lines_of_code(script_path)
 
@@ -81,3 +83,15 @@ class EcoScoreCalculator:
             return "Optimizations may be required for better performance."
         else:
             return "Code appears efficient."
+
+
+# Example usage
+if __name__ == "__main__":
+    calculator = EcoScoreCalculator()
+    script_path = "test_script.py"
+
+    try:
+        efficiency_report = calculator.evaluate_efficiency(script_path)
+        print("Efficiency Report:", efficiency_report)
+    except FileNotFoundError as e:
+        print(e)

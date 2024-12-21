@@ -3,10 +3,12 @@
 
 from ecocode.dynamic_profiler import DynamicProfiler
 
+
 # Define a sample function to profile
 def compute_sum():
     total = sum(range(10000))
     return total
+
 
 # Define another sample function to profile
 def compute_factorial():
@@ -14,6 +16,7 @@ def compute_factorial():
     for i in range(1, 1000):
         result *= i
     return result
+
 
 if __name__ == "__main__":
     # Initialize the DynamicProfiler

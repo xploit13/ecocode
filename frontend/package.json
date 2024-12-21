@@ -11,13 +11,7 @@
     "lint": "eslint src --fix",
     "prettify": "prettier --write src"
   },
-  "keywords": [
-    "ecocode",
-    "frontend",
-    "energy-efficiency",
-    "react",
-    "sustainable software"
-  ],
+  "keywords": ["ecocode", "frontend", "energy-efficiency", "react", "sustainable software"],
   "author": "EcoCode Team",
   "license": "MIT",
   "dependencies": {

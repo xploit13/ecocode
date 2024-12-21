@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import Dashboard from "./components/Dashboard";
-import { initializeSocket, subscribeToEvent } from "./services/socket";
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import Dashboard from './components/Dashboard';
+import { initializeSocket, subscribeToEvent } from './services/socket';
 
 /**
  * App Component
@@ -15,7 +15,7 @@ const App = () => {
     const socketInstance = initializeSocket();
     setSocket(socketInstance);
 
-    subscribeToEvent(socketInstance, "notification", (data) => {
+    subscribeToEvent(socketInstance, 'notification', (data) => {
       setNotifications((prev) => [...prev, data]);
     });
 

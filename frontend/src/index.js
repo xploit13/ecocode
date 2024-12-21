@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
 
 /**
  * Enable React Strict Mode and include error boundary for global error handling.
@@ -34,5 +34,5 @@ ReactDOM.render(
       <App />
     </ErrorBoundary>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );

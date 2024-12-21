@@ -5,7 +5,9 @@ import time
 import functools
 import tracemalloc
 
+
 class DynamicProfiler:
+
     def __init__(self):
         self.results = {}
         self.active = False
@@ -36,16 +38,21 @@ class DynamicProfiler:
         Returns:
             callable: The wrapped function with profiling enabled.
         """
+
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             if not self.active:
-                raise RuntimeError("Profiler must be started before profiling functions.")
-            
+                raise RuntimeError(
+                    "Profiler must be started before profiling functions.")
+
             func_name = func.__name__
             self.results[func_name] = {
-                "start_time": time.time(),
-                "memory_start": tracemalloc.get_traced_memory()[0],
-                "execution_count": self.results.get(func_name, {}).get("execution_count", 0) + 1
+                "start_time":
+                time.time(),
+                "memory_start":
+                tracemalloc.get_traced_memory()[0],
+                "execution_count":
+                self.results.get(func_name, {}).get("execution_count", 0) + 1
             }
 
             result = func(*args, **kwargs)
@@ -54,10 +61,14 @@ class DynamicProfiler:
             end_time = time.time()
 
             self.results[func_name].update({
-                "end_time": end_time,
-                "execution_time": end_time - self.results[func_name]["start_time"],
-                "memory_end": memory_end,
-                "memory_used": memory_end - self.results[func_name]["memory_start"]
+                "end_time":
+                end_time,
+                "execution_time":
+                end_time - self.results[func_name]["start_time"],
+                "memory_end":
+                memory_end,
+                "memory_used":
+                memory_end - self.results[func_name]["memory_start"]
             })
 
             return result
@@ -75,3 +86,22 @@ class DynamicProfiler:
         Clear all recorded profiling results.
         """
         self.results = {}
+
+
+# Example usage
+if __name__ == "__main__":
+    profiler = DynamicProfiler()
+    profiler.start()
+
+    @profiler.profile_function
+    def test_function():
+        total = 0
+        for i in range(100000):
+            total += i
+        return total
+
+    test_function()
+    test_function()
+
+    profiler.stop()
+    print("Profiling Results:", profiler.get_results())

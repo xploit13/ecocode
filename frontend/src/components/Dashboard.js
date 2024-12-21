@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Alerts from "./Alerts";
-import ProcessTable from "./ProcessTable";
-import Widgets from "./Widgets";
+import React, { useState } from 'react';
+import Alerts from './Alerts';
+import ProcessTable from './ProcessTable';
+import Widgets from './Widgets';
 
 /**
  * Dashboard Component
@@ -9,13 +9,9 @@ import Widgets from "./Widgets";
  */
 const Dashboard = () => {
   const [alerts, setAlerts] = useState([
-    { type: "info", message: "System is running smoothly.", title: "Info" },
-    {
-      type: "warning",
-      message: "High energy consumption detected.",
-      title: "Warning",
-    },
-    { type: "error", message: "A critical error occurred.", title: "Error" },
+    { type: 'info', message: 'System is running smoothly.', title: 'Info' },
+    { type: 'warning', message: 'High energy consumption detected.', title: 'Warning' },
+    { type: 'error', message: 'A critical error occurred.', title: 'Error' },
   ]);
 
   const dismissAlert = (index) => {
@@ -25,7 +21,7 @@ const Dashboard = () => {
   const handleAddAlert = () => {
     setAlerts((prevAlerts) => [
       ...prevAlerts,
-      { type: "success", message: "New alert added!", title: "Success" },
+      { type: 'success', message: 'New alert added!', title: 'Success' },
     ]);
   };
 
@@ -35,13 +31,7 @@ const Dashboard = () => {
         <h1>EcoCode Dashboard</h1>
         <button
           onClick={handleAddAlert}
-          style={{
-            padding: "10px",
-            margin: "10px",
-            backgroundColor: "#007bff",
-            color: "#fff",
-            border: "none",
-          }}
+          style={{ padding: '10px', margin: '10px', backgroundColor: '#007bff', color: '#fff', border: 'none' }}
         >
           Add Alert
         </button>

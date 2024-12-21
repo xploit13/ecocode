@@ -1,10 +1,12 @@
 # example_plugin.py
 # Extended example plugin demonstrating advanced extensibility in EcoCode
 
+
 class ExamplePlugin:
+
     def __init__(self):
-        self.version = "1.0.0"
         self.name = "ExamplePlugin"
+        self.version = "1.0.0"
         self.author = "EcoCode Team"
 
     def analyze(self, data):
@@ -39,9 +41,19 @@ class ExamplePlugin:
         if isinstance(data, dict) and "energy_usage" in data:
             energy_usage = data["energy_usage"]
             if energy_usage > 100:
-                recommendations.append("Consider optimizing high energy-consuming operations.")
+                recommendations.append(
+                    "Consider optimizing high energy-consuming operations.")
             else:
-                recommendations.append("Energy usage is within acceptable limits.")
+                recommendations.append(
+                    "Energy usage is within acceptable limits.")
         else:
             recommendations.append("Insufficient data for recommendations.")
         return recommendations
+
+
+# Example usage
+if __name__ == "__main__":
+    plugin = ExamplePlugin()
+    sample_data = {"energy_usage": 120, "process": "Sample Process"}
+    result = plugin.analyze(sample_data)
+    print("Plugin Analysis Results:", result)

@@ -5,7 +5,11 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 
-def configure_logging(log_file="ecocode.log", level=logging.INFO, max_size=5 * 1024 * 1024, backup_count=5):
+
+def configure_logging(log_file="ecocode.log",
+                      level=logging.INFO,
+                      max_size=5 * 1024 * 1024,
+                      backup_count=5):
     """
     Configure logging for EcoCode with enhanced features.
 
@@ -29,15 +33,29 @@ def configure_logging(log_file="ecocode.log", level=logging.INFO, max_size=5 * 1
     # Console handler for real-time logs
     console_handler = logging.StreamHandler()
     console_handler.setLevel(level)
-    console_formatter = logging.Formatter('[%(asctime)s] %(levelname)s - %(message)s')
+    console_formatter = logging.Formatter(
+        '[%(asctime)s] %(levelname)s - %(message)s')
     console_handler.setFormatter(console_formatter)
     logger.addHandler(console_handler)
 
     # Rotating file handler for persistent logs
-    file_handler = RotatingFileHandler(log_file, maxBytes=max_size, backupCount=backup_count)
+    file_handler = RotatingFileHandler(log_file,
+                                       maxBytes=max_size,
+                                       backupCount=backup_count)
     file_handler.setLevel(level)
-    file_formatter = logging.Formatter('[%(asctime)s] %(levelname)s - %(message)s (%(filename)s:%(lineno)d)')
+    file_formatter = logging.Formatter(
+        '[%(asctime)s] %(levelname)s - %(message)s (%(filename)s:%(lineno)d)')
     file_handler.setFormatter(file_formatter)
     logger.addHandler(file_handler)
 
     return logger
+
+
+# Example usage
+if __name__ == "__main__":
+    logger = configure_logging()
+    logger.info("This is an info log.")
+    logger.warning("This is a warning log.")
+    logger.error("This is an error log.")
+    logger.debug("This is a debug log.")
+    logger.critical("This is a critical log.")

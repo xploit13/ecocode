@@ -3,7 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name='ecocode',
     version='1.1.0',
-    description='A tool for profiling, analyzing, and optimizing the energy impact of software.',
+    description=
+    'A tool for profiling, analyzing, and optimizing the energy impact of software.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='EcoCode Team',

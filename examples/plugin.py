@@ -3,8 +3,10 @@
 
 from ecocode.plugin_manager import PluginManager
 
+
 # Define a custom plugin with advanced functionality
 class AdvancedPlugin:
+
     def __init__(self):
         self.name = "AdvancedPlugin"
 
@@ -16,6 +18,7 @@ class AdvancedPlugin:
         else:
             result["key_metric"] = "No key_metric provided"
         return result
+
 
 if __name__ == "__main__":
     # Initialize the PluginManager

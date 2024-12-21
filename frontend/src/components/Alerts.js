@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Alerts Component
@@ -16,23 +16,13 @@ const Alerts = ({ alerts, onDismiss }) => {
         <div
           key={index}
           className={`alert alert-${alert.type}`}
-          style={{
-            border: `2px solid ${getAlertBorderColor(alert.type)}`,
-            marginBottom: "10px",
-            padding: "10px",
-          }}
+          style={{ border: `2px solid ${getAlertBorderColor(alert.type)}`, marginBottom: '10px', padding: '10px' }}
         >
-          <strong>{alert.title || "Alert"}:</strong> {alert.message}
+          <strong>{alert.title || 'Alert'}:</strong> {alert.message}
           {onDismiss && (
             <button
               onClick={() => onDismiss(index)}
-              style={{
-                marginLeft: "10px",
-                cursor: "pointer",
-                backgroundColor: "#ccc",
-                border: "none",
-                padding: "5px",
-              }}
+              style={{ marginLeft: '10px', cursor: 'pointer', backgroundColor: '#ccc', border: 'none', padding: '5px' }}
             >
               Dismiss
             </button>
@@ -50,23 +40,23 @@ const Alerts = ({ alerts, onDismiss }) => {
  */
 const getAlertBorderColor = (type) => {
   switch (type) {
-    case "info":
-      return "#007bff";
-    case "warning":
-      return "#ffc107";
-    case "error":
-      return "#dc3545";
-    case "success":
-      return "#28a745";
+    case 'info':
+      return '#007bff';
+    case 'warning':
+      return '#ffc107';
+    case 'error':
+      return '#dc3545';
+    case 'success':
+      return '#28a745';
     default:
-      return "#6c757d";
+      return '#6c757d';
   }
 };
 
 Alerts.propTypes = {
   alerts: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(["info", "warning", "error", "success"]).isRequired,
+      type: PropTypes.oneOf(['info', 'warning', 'error', 'success']).isRequired,
       message: PropTypes.string.isRequired,
       title: PropTypes.string,
     })

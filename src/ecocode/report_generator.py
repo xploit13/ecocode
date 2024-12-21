@@ -5,7 +5,9 @@ import json
 import os
 from datetime import datetime
 
+
 class ReportGenerator:
+
     def __init__(self, output_directory="reports"):
         """
         Initialize the ReportGenerator.
@@ -32,10 +34,10 @@ class ReportGenerator:
         """
         file_path = os.path.join(self.output_directory, filename)
         with open(file_path, "w") as file:
-            file.write(f"Energy Analysis Report - {datetime.now()}\n")
-            file.write("=" * 50 + "\n")
+            file.write(f"Energy Analysis Report - {datetime.now()}")
+            file.write("=" * 50 + "")
             for key, value in data.items():
-                file.write(f"{key}: {value}\n")
+                file.write(f"{key}: {value}")
         print(f"Text report generated at: {file_path}")
         return file_path
 
@@ -69,13 +71,30 @@ class ReportGenerator:
         """
         file_path = os.path.join(self.output_directory, filename)
         with open(file_path, "w") as file:
-            file.write(f"<html><head><title>Energy Analysis Report</title></head><body>\n")
-            file.write(f"<h1>Energy Analysis Report - {datetime.now()}</h1>\n")
-            file.write("<table border='1'>\n")
-            file.write("<tr><th>Key</th><th>Value</th></tr>\n")
+            file.write(
+                f"<html><head><title>Energy Analysis Report</title></head><body>"
+            )
+            file.write(f"<h1>Energy Analysis Report - {datetime.now()}</h1>")
+            file.write("<table border='1'>")
+            file.write("<tr><th>Key</th><th>Value</th></tr>")
             for key, value in data.items():
-                file.write(f"<tr><td>{key}</td><td>{value}</td></tr>\n")
-            file.write("</table>\n")
-            file.write("</body></html>\n")
+                file.write(f"<tr><td>{key}</td><td>{value}</td></tr>")
+            file.write("</table>")
+            file.write("</body></html>")
         print(f"HTML report generated at: {file_path}")
         return file_path
+
+
+# Example usage
+if __name__ == "__main__":
+    generator = ReportGenerator()
+    sample_data = {
+        "Total Energy Usage": "120 J",
+        "Execution Time": "15 seconds",
+        "Processes Analyzed": 3,
+        "Average Energy Usage": "40 J"
+    }
+
+    generator.generate_text_report(sample_data)
+    generator.generate_json_report(sample_data)
+    generator.generate_html_report(sample_data)

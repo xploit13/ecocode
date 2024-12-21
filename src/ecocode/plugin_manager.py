@@ -4,7 +4,9 @@
 import importlib
 import os
 
+
 class PluginManager:
+
     def __init__(self, plugin_directory="plugins"):
         """
         Initialize the PluginManager.
@@ -73,7 +75,8 @@ class PluginManager:
                 plugin_instance = module.Plugin()
                 self.register_plugin(plugin_instance)
             else:
-                print(f"Module '{module_name}' does not have a 'Plugin' class.")
+                print(
+                    f"Module '{module_name}' does not have a 'Plugin' class.")
         except Exception as e:
             print(f"Failed to load plugin '{module_name}': {e}")
 
@@ -85,3 +88,15 @@ class PluginManager:
             list: Names of all registered plugins.
         """
         return list(self.plugins.keys())
+
+
+# Example usage
+if __name__ == "__main__":
+    manager = PluginManager(plugin_directory="plugins")
+
+    # List all loaded plugins
+    print("Available Plugins:", manager.list_plugins())
+
+    # Run a specific plugin
+    plugin_output = manager.run_plugin("ExamplePlugin", {"data": "test"})
+    print("Plugin Output:", plugin_output)

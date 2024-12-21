@@ -1,6 +1,6 @@
-import { io } from "socket.io-client";
+import { io } from 'socket.io-client';
 
-const SOCKET_SERVER_URL = "http://localhost:5000";
+const SOCKET_SERVER_URL = 'http://localhost:5000';
 
 /**
  * Initialize a WebSocket connection.
@@ -9,16 +9,16 @@ const SOCKET_SERVER_URL = "http://localhost:5000";
 export const initializeSocket = () => {
   const socket = io(SOCKET_SERVER_URL);
 
-  socket.on("connect", () => {
-    console.log("WebSocket connected:", socket.id);
+  socket.on('connect', () => {
+    console.log('WebSocket connected:', socket.id);
   });
 
-  socket.on("disconnect", () => {
-    console.log("WebSocket disconnected");
+  socket.on('disconnect', () => {
+    console.log('WebSocket disconnected');
   });
 
-  socket.on("error", (error) => {
-    console.error("WebSocket error:", error);
+  socket.on('error', (error) => {
+    console.error('WebSocket error:', error);
   });
 
   return socket;
@@ -63,6 +63,6 @@ export const unsubscribeFromEvent = (socket, event) => {
 export const reconnectSocket = (socket) => {
   if (socket.disconnected) {
     socket.connect();
-    console.log("WebSocket reconnected");
+    console.log('WebSocket reconnected');
   }
 };
