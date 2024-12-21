@@ -1,5 +1,5 @@
 # report_generator.py
-# Module for generating energy analysis reports in EcoCode
+# Generates energy analysis reports in EcoCode
 
 def generate_report(script_path, output_file):
     print(f"Generating report for {script_path}...")

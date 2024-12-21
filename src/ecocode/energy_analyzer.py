@@ -1,5 +1,5 @@
 # energy_analyzer.py
-# Module for analyzing energy usage in EcoCode
+# Analyzes energy usage in EcoCode
 
 class EnergyAnalyzer:
     def start(self):

@@ -1,5 +1,5 @@
 # logger.py
-# Module for logging operations in EcoCode
+# Logging operations for EcoCode
 
 import logging
 

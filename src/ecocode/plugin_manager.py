@@ -1,5 +1,5 @@
 # plugin_manager.py
-# Module for managing plugins in EcoCode
+# Manages plugins in EcoCode
 
 class PluginManager:
     def __init__(self):
