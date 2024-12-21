@@ -1,1 +1,2 @@
-# Initialization for the EcoCode module.
+# __init__.py
+# Package initialization for EcoCode

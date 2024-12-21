@@ -1,1 +1,2 @@
-# Initialization for plugin modules.
+# __init__.py
+# Package initialization for EcoCode plugins

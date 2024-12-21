@@ -1,1 +1,2 @@
-# Initialization for test modules.
+# __init__.py
+# Package initialization for EcoCode tests

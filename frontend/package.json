@@ -1,1 +1,31 @@
-{ "name": "ecocode-frontend", "version": "1.0.0" }
+{
+  "name": "ecocode-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for EcoCode - A tool for energy-efficient software development.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "keywords": [
+    "ecocode",
+    "frontend",
+    "energy-efficiency",
+    "react"
+  ],
+  "author": "EcoCode Team",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "^5.0.0",
+    "axios": "^1.3.0",
+    "socket.io-client": "^4.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-plugin-react": "^7.30.0"
+  }
+}
