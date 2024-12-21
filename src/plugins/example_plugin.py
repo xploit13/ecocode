@@ -1,10 +1,47 @@
 # example_plugin.py
-# Example plugin demonstrating extensibility in EcoCode
+# Extended example plugin demonstrating advanced extensibility in EcoCode
 
 class ExamplePlugin:
     def __init__(self):
+        self.version = "1.0.0"
         self.name = "ExamplePlugin"
+        self.author = "EcoCode Team"
 
     def analyze(self, data):
-        print("Analyzing data in ExamplePlugin...")
-        return {"analysis": "This is an example plugin analysis."}
+        """
+        Analyze the input data and provide results.
+
+        Args:
+            data (dict): Input data for analysis.
+
+        Returns:
+            dict: Analysis results.
+        """
+        print(f"Running {self.name} (v{self.version}) by {self.author}")
+        analysis_results = {
+            "input_data": data,
+            "analysis": "Example analysis result",
+            "recommendations": self.generate_recommendations(data)
+        }
+        return analysis_results
+
+    def generate_recommendations(self, data):
+        """
+        Generate optimization recommendations based on the analysis.
+
+        Args:
+            data (dict): Input data for generating recommendations.
+
+        Returns:
+            list: A list of recommendations.
+        """
+        recommendations = []
+        if isinstance(data, dict) and "energy_usage" in data:
+            energy_usage = data["energy_usage"]
+            if energy_usage > 100:
+                recommendations.append("Consider optimizing high energy-consuming operations.")
+            else:
+                recommendations.append("Energy usage is within acceptable limits.")
+        else:
+            recommendations.append("Insufficient data for recommendations.")
+        return recommendations
